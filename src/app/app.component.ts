@@ -7,14 +7,7 @@ import { loadSolicitudes } from './state/solicitud/redux/actions/solicitud.actio
 
 @Component({
   selector: 'app-root',
-  template: `
-    <h1>Solicitudes</h1>
-    <ul>
-      <li *ngFor="let s of solicitudes$ | async">
-        {{ s.id }} - {{ s.fechaSolicitud }} - {{ s.solicitante }} - Estado: {{ s.idEstado }}
-      </li>
-    </ul>
-  `
+  templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
   solicitudes$: Observable<Solicitud[]>;
