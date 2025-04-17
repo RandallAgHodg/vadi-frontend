@@ -1,0 +1,43 @@
+<div class="form-container">
+  <form [formGroup]="solicitudForm" (ngSubmit)="onSubmit()">
+    <h3 style="text-transform: uppercase">{{ title }}</h3>
+
+    <mat-form-field>
+      <mat-label>Nombre del Solicitante</mat-label>
+      <input
+        matInput
+        id="solicitante"
+        placeholder="Ingresa el nombre"
+        formControlName="solicitante"
+      />
+      <mat-error *ngIf="solicitudForm.get('solicitante')?.hasError('required')">
+        Este campo es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <div *ngIf="id">
+      <mat-form-field>
+        <mat-label>Estado de la Solicitud</mat-label>
+        <mat-select
+          id="idEstado"
+          formControlName="idEstado"
+          placeholder="Selecciona un estado"
+        >
+          <mat-option
+            *ngFor="let estado of estados$ | async"
+            [value]="estado.idEstado"
+          >
+            {{ estado.estado }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="solicitudForm.get('idEstado')?.hasError('required')">
+          Debes seleccionar un estado.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button [disabled]="solicitudForm.invalid">
+      Guardar Solicitud
+    </button>
+  </form>
+</div>

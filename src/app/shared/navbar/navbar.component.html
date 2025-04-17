@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <span class="logo">MyApp</span>
+
+  <span class="spacer"></span>
+
+  <button mat-button routerLink="/solicitudes/list" routerLinkActive="active">
+    Solicitudes
+  </button>
+  <button
+    (click)="onCreate()"
+    mat-button
+    routerLink="/solicitudes/add"
+    routerLinkActive="active"
+  >
+    Crear Solicitud
+  </button>
+</mat-toolbar>
