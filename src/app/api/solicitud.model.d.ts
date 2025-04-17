@@ -1,6 +1,6 @@
 export interface Solicitud {
-    id: number;
-    fechaSolicitud: string;
-    solicitante: string;
-    idEstado: number;
+  id: number;
+  fechaSolicitud: Date;
+  solicitante: string;
+  estado: string;
 }

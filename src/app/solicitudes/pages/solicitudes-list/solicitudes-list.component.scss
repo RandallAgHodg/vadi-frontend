@@ -1,0 +1,52 @@
+.solicitudes-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.solicitud-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  height: 100%;
+  border-radius: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafc 100%);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  mat-card-header {
+    margin-bottom: 8px;
+  }
+
+  .avatar {
+    background-color: #3f51b5;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+  }
+
+  .estado {
+    padding: 2px 8px;
+    border-radius: 12px;
+    background-color: #e0e0e0;
+    font-size: 12px;
+  }
+
+
+}
+
+
+.search-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

@@ -1,1 +1,44 @@
-<p>solicitudes-list works!</p>
+<div class="solicitudes-container">
+  <form class="search-bar" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <div>
+      <mat-form-field>
+        <mat-label>Nombre del Solicitante</mat-label>
+        <input
+          matInput
+          id="solicitante"
+          placeholder="Ingresa el nombre"
+          formControlName="solicitante"
+        />
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Buscar</button>
+  </form>
+
+  <mat-grid-list cols="3" rowHeight="1:1" gutterSize="12px">
+    <mat-grid-tile
+      *ngFor="let s of solicitudes$ | async"
+      (click)="goToUpdate(s)"
+    >
+      <mat-card class="solicitud-card mat-elevation-z6">
+        <mat-card-header>
+          <div mat-card-avatar class="avatar">{{ s.id }}</div>
+          <mat-card-title>Solicitud #{{ s.id }}</mat-card-title>
+          <mat-card-subtitle>{{
+            s.fechaSolicitud | date : "mediumDate"
+          }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>Solicitante:</strong> {{ s.solicitante }}</p>
+          <p>
+            <strong>Estado:</strong> <span class="estado">{{ s.estado }}</span>
+          </p>
+          <p>
+            <strong>Fecha Solicitud:</strong>
+            {{ s.fechaSolicitud | dateToText }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
